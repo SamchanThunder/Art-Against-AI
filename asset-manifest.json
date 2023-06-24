@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Art-Against-AI/static/css/main.4e2b551e.css",
+    "main.js": "/Art-Against-AI/static/js/main.7b540f7e.js",
+    "static/js/787.81bd6cb7.chunk.js": "/Art-Against-AI/static/js/787.81bd6cb7.chunk.js",
+    "static/media/Logo.png": "/Art-Against-AI/static/media/Logo.7319777f8ed18609c9e0.png",
+    "index.html": "/Art-Against-AI/index.html",
+    "main.4e2b551e.css.map": "/Art-Against-AI/static/css/main.4e2b551e.css.map",
+    "main.7b540f7e.js.map": "/Art-Against-AI/static/js/main.7b540f7e.js.map",
+    "787.81bd6cb7.chunk.js.map": "/Art-Against-AI/static/js/787.81bd6cb7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4e2b551e.css",
+    "static/js/main.7b540f7e.js"
+  ]
+}
