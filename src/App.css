@@ -1,38 +1,90 @@
-.App {
+p { 
+  margin:0 
+}
+
+.CornerText{
+  font-family: "Indie Flower";
+  font-size: 2.5vw;
+  position: fixed; 
+	top: 3vw; 
+	left: 4vw; 
   text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  @media (max-width: 600px) {
+    font-size: 4vw; /* Adjust the width for smaller screens */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.CornerTextTwo{
+  font-family: "Indie Flower";
+  font-size: 2.5vw;
+  position: fixed; 
+	top: 3vw; 
+	right: 4vw; 
+  text-align: center;
+
+  @media (max-width: 600px) {
+    font-size: 4vw; /* Adjust the width for smaller screens */
+  }
+}
+
+
+.Logo{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin-top: 70px;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.Logo img{
+  width: 40%;
+  height: auto;;
+  filter: drop-shadow(0 5px 3px rgba(0, 0, 0, 0.4));
+  @media (max-width: 600px) {
+    width: 90%;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  align-items: center;
+  margin: 0 auto;
+  @media (max-width: 600px) {
+    width: 90%;
+  }
+}
+
+.easyBox,.mediumBox,.hardBox {
+  flex: 1;
+  height: 15vw;
+  justify-content: center;
+  align-items: center;
+  font-family: "Indie Flower";
+  font-size: 4vw;
+  color: dimgrey;
+  border: none;
+  filter: drop-shadow(0 5px 3px rgba(0, 0, 0, 0.4));
+  @media (max-width: 600px) {
+    font-size: 25px;
+    height: 200px;
+  }
+  
+}
+.easyBox {
+  background-color: lightgreen;
+  margin-right: 70px;
+  @media (max-width: 600px) {
+    margin-right: 10px;
+  }
+}
+.mediumBox {
+  background-color: khaki;
+}
+.hardBox {
+  background-color: lightcoral;
+  margin-left: 70px;
+  @media (max-width: 600px) {
+    margin-left: 10px;
   }
 }
