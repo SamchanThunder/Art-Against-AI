@@ -1,18 +1,24 @@
 import './App.css';
 import { Helmet } from 'react-helmet';
 import Logo from './Assets/Logo.png';
+import React, { useState } from 'react';
 
 function App() {
+  const [isDivDisabled, setDivDisabled] = useState(false);
+  const [isSecondDivEnabled, setSecondDivEnabled] = useState(false);
+
   const handleButtonClick = (boxName) => {
-    // Handle button click event for each box
-    alert(`Button ${boxName} clicked!`);
+    setDivDisabled(true);
+    setSecondDivEnabled(true);
   };
 
   return (
     <div className="App">
 
       <Helmet><link href='https://fonts.googleapis.com/css?family=Indie Flower' rel='stylesheet'/></Helmet>
-      <div className="Home">
+      
+      {/* HOME */}
+      <div className={`content ${isDivDisabled ? 'disabled' : ''}`}>
         <div className="CornerText"><b>From Google's <p>Quick Draw</p><p>Dataset</p></b></div>
         <div className="CornerTextTwo"><b>By <p>Samchan Lee</p></b></div>
 
@@ -30,6 +36,13 @@ function App() {
           </button>
         </div>
       </div>
+
+      {/* Second Page */}
+      {isSecondDivEnabled && (
+        <div className="secondDiv">
+          hi
+        </div>
+      )}
 
     </div>
   );
