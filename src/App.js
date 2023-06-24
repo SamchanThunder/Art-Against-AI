@@ -4,12 +4,9 @@ import Logo from './Assets/Logo.png';
 import React, { useState } from 'react';
 
 function App() {
-  const [isDivDisabled, setDivDisabled] = useState(false);
-  const [isSecondDivEnabled, setSecondDivEnabled] = useState(false);
 
   const handleButtonClick = (boxName) => {
-    setDivDisabled(true);
-    setSecondDivEnabled(true);
+    console.log();
   };
 
   return (
@@ -18,9 +15,10 @@ function App() {
       <Helmet><link href='https://fonts.googleapis.com/css?family=Indie Flower' rel='stylesheet'/></Helmet>
       
       {/* HOME */}
-      <div className={`content ${isDivDisabled ? 'disabled' : ''}`}>
-        <div className="CornerText"><b>From Google's <p>Quick Draw</p><p>Dataset</p></b></div>
-        <div className="CornerTextTwo"><b>By <p>Samchan Lee</p></b></div>
+      <div className='Home'>
+        <div className="CornerText"><b>From Google's Quick Draw Dataset</b></div>
+        <div className="CornerTextTwo"><b>Art <p>Against</p> AI</b></div>
+        <div className="CornerTextThree"><b>Can You <p>Draw Better</p> Than AI?</b></div>
 
         <div className="Logo"><img src={Logo} alt="Logo" /></div>
 
@@ -38,11 +36,9 @@ function App() {
       </div>
 
       {/* Second Page */}
-      {isSecondDivEnabled && (
         <div className="secondDiv">
-          hi
+          Test
         </div>
-      )}
 
     </div>
   );
