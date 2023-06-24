@@ -5,6 +5,10 @@ p {
   font-family: "Indie Flower";
 }
 
+.Home{
+  display: true;
+}
+
 .CornerText,.CornerTextTwo,.CornerTextThree{
   font-size: 2.5vw;
   position: fixed; 
@@ -128,4 +132,56 @@ p {
 }
 .hardBox:hover {
   background-color: rgb(255, 187, 187);
+}
+
+/* Second Page  */
+.secondDiv {
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.InfoBox {
+  display: flex;
+  flex-direction: column;
+  font-size: 31px;
+  align-items: center;
+  justify-content: top;
+  width: 70vw;
+  height: 40vw;
+  background-color: rgb(123, 186, 209);
+  border-color: lightgreen;
+  border-width: 20px;
+  border-style: solid;
+  color: white;
+  @media (max-width: 600px) {
+    width: 90vw;
+    height: 90vw;
+    font-size: 3.8vw;
+  }
+}
+
+li{
+  margin: 10px 20px;
+  @media (max-width: 600px) {
+    margin: 0px 0px;
+  }
+}
+.startBox {
+  background-color: lightgreen;
+  height: 50vw;
+  width: 30vw;
+  justify-content: center;
+  align-items: center;
+  font-size: 7vw;
+  color: white;
+  border: none;
+  filter: drop-shadow(0 5px 3px rgba(0, 0, 0, 0.4));
+  cursor: pointer;
+  @media (max-width: 600px) {
+    width: auto;
+    height: 40vw;
+    font-size: 10vw;
+  }
 }
