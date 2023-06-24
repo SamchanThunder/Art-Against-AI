@@ -38,7 +38,7 @@ function App() {
         </div>
       </div>)}
 
-      {/* Second Page */}
+      {/* Instructions Page */}
         {infopage && (<div className="secondDiv">
           <div className="InfoBox"> 
             <p>*</p>
