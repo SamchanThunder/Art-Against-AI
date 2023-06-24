@@ -19,6 +19,7 @@ function App() {
         <div className="CornerText"><b>From Google's Quick Draw Dataset</b></div>
         <div className="CornerTextTwo"><b>Art <p>Against</p> AI</b></div>
         <div className="CornerTextThree"><b>Can You <p>Draw Better</p> Than AI?</b></div>
+        <button className="questionBox"><b>?</b></button>
 
         <div className="Logo"><img src={Logo} alt="Logo" /></div>
 

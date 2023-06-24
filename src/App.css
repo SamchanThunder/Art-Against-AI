@@ -1,49 +1,63 @@
 p { 
   margin:0 
 }
-
-.CornerText{
+* {
   font-family: "Indie Flower";
+}
+
+.CornerText,.CornerTextTwo,.CornerTextThree{
   font-size: 2.5vw;
   position: fixed; 
-	top: 3vw; 
-	left: 4vw; 
   text-align: center;
-
   @media (max-width: 600px) {
     font-size: 4vw; /* Adjust the width for smaller screens */
   }
+}
+.CornerText{
+	top: 3vw; 
+	left: 4vw; 
 }
 
 .CornerTextTwo{
-  font-family: "Indie Flower";
   color: mediumaquamarine;
-  font-size: 2.5vw;
-  position: fixed; 
 	top: 14vw; 
 	right: 20vw; 
-  text-align: center;
   transform: rotate(-15deg);
-
   @media (max-width: 600px) {
-    font-size: 4vw; /* Adjust the width for smaller screens */
+    top: 25vw; 
+	  right: 12vw; 
   }
 }
 .CornerTextThree{
-  font-family: "Indie Flower";
   color: cornflowerblue;
-  font-size: 2.5vw;
-  position: fixed; 
 	top: 20vw; 
 	left: 14vw; 
-  text-align: center;
   transform: rotate(8deg);
-
   @media (max-width: 600px) {
-    font-size: 4vw; /* Adjust the width for smaller screens */
+    top: 18vw; 
+	  left: 7vw; 
   }
 }
 
+.questionBox{
+  position: fixed;
+  top: 3vw;
+  right: 4vw;
+  height: 4vw;
+  width: 4vw;
+  font-size: 3vw;
+  align-items: center;
+  justify-content: center;
+  color: dimgray;
+  background-color: rgb(166, 191, 230);
+  border: none;
+  filter: drop-shadow(0 5px 3px rgba(0, 0, 0, 0.4));
+  cursor: pointer;
+  @media (max-width: 600px) {
+    height: 7vw; 
+	  width: 7vw; 
+  }
+}
 
 .Logo{
   display: flex;
@@ -76,7 +90,6 @@ p {
   height: 15vw;
   justify-content: center;
   align-items: center;
-  font-family: "Indie Flower";
   font-size: 4vw;
   color: dimgrey;
   border: none;
