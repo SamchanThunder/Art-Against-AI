@@ -1,15 +1,18 @@
 import './App.css';
+import CanvasDraw from "@win11react/react-canvas-draw";
 import { Helmet } from 'react-helmet';
 import Logo from './Assets/Logo.png';
 import Robot from './Assets/Robot.png';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Timer from './Components/Timer'
+import DrawingPad from './Components/DrawingPad'
 
 function App() {
   const [homepage, showHome] = useState(true);
   const [infopage,showInfo] = useState(false);
   const [stats,showStats] = useState(false);
   const [firstround,showFRound] = useState(false);
+  const canvasRef = useRef(null);
 
   const handleButtonClick = (boxName) => {
     showHome(false);
@@ -23,6 +26,11 @@ function App() {
     setTimerActive(true);
     showInfo(false);
     showFRound(true);
+  };
+
+  const getImage = () => {
+    const dataURL = canvasRef.current.getDataURL();
+    console.log(dataURL);
   };
 
   return (
@@ -85,11 +93,18 @@ function App() {
           <div className="wordText">
             WORD
           </div>
-          <div className="Canvas">
-            
-          </div>
-          <div className="RobotAnswer"><b>That is a <u>WORD</u></b></div>
+          <button className="Erase" onClick={() => {canvasRef.current.clear(); }}>ERASE</button>
+          <CanvasDraw ref= {canvasRef}   
+            style={{ width: '100%', height: '80vh'}}
+            brushRadius= {4}
+            brushColor= "#000000"
+            hideInterface= {false}
+            hideGrid= {true}
+
+          />
           <div className="Robot"><img src={Robot} alt="Robot" /></div>
+          <div className="RobotAnswer"><b>That is a <u>WORD</u></b></div>
+
 
         </div>)}
     </div>

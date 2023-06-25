@@ -229,41 +229,63 @@ li{
   }
 }
 
-.Canvas{
-  height: 80vh;
-  top: 0;
-  margin-top: -100px;
+/* canvas{
+  background-color: green;
+  height: 75vh;
+  width: 100%;
   @media (max-width: 600px) {
-    height: 150vw;
+    height: 60vh;
   }
+} */
+
+.Erase{
+  position: absolute;
+  background-color: pink;
+  color: rgb(61, 61, 61);
+  filter: drop-shadow(0px 10px 3px rgba(0, 0, 0, 0.4)); 
+  border:none;
+  left: 5vw;
+  top: 15vw;
+  width: 10vw;
+  height: 6vh;
+  font-size: 2vw;
+  z-index: 2;
+  @media (max-width: 600px) {
+    width: 7vh;
+    font-size: 3vw;
+  }
+}
+.Erase:hover{
+  cursor: pointer;
 }
 
 .RobotAnswer{
+  z-index: 0;
   position: absolute;
-  width: 100%;
+  left: 50%;
+  transform: translate(-50%);
   text-align: center;
   font-size: 3vw;
-  margin-bottom: 150px;
-  bottom: 0;
+  bottom: 18vh;
   @media (max-width: 600px) {
     font-size: 7vw;
-    margin-top: -80px;
   }
 }
 
 .Robot{
   position: absolute;
-  width: 100%;
+  left: 50%;
+  transform: translate(-50%);
   text-align: center;
-  margin-top: 5px;
-  bottom: 0;
+  bottom: 1vh;
   @media (max-width: 600px) {
-    margin-top: -20px;
+    bottom: 1vh;
   }
 }
 .Robot img{
-  width: 200px; 
+  width: 13vw; 
+  height: auto;
   @media (max-width: 600px) {
-    width: 50%;
+    width: 45%;
   }
 }
