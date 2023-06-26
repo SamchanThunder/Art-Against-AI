@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Art-Against-AI/static/css/main.94d83cc8.css",
-    "main.js": "/Art-Against-AI/static/js/main.6d851054.js",
+    "main.js": "/Art-Against-AI/static/js/main.4e7f1fed.js",
     "static/js/787.81bd6cb7.chunk.js": "/Art-Against-AI/static/js/787.81bd6cb7.chunk.js",
     "static/media/Logo.png": "/Art-Against-AI/static/media/Logo.7319777f8ed18609c9e0.png",
     "static/media/Robot.png": "/Art-Against-AI/static/media/Robot.368be4746e766b9e5561.png",
     "index.html": "/Art-Against-AI/index.html",
     "main.94d83cc8.css.map": "/Art-Against-AI/static/css/main.94d83cc8.css.map",
-    "main.6d851054.js.map": "/Art-Against-AI/static/js/main.6d851054.js.map",
+    "main.4e7f1fed.js.map": "/Art-Against-AI/static/js/main.4e7f1fed.js.map",
     "787.81bd6cb7.chunk.js.map": "/Art-Against-AI/static/js/787.81bd6cb7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.94d83cc8.css",
-    "static/js/main.6d851054.js"
+    "static/js/main.4e7f1fed.js"
   ]
 }
