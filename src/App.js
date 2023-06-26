@@ -3,16 +3,19 @@ import CanvasDraw from "@win11react/react-canvas-draw";
 import { Helmet } from 'react-helmet';
 import Logo from './Assets/Logo.png';
 import Robot from './Assets/Robot.png';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Timer from './Components/Timer'
-import DrawingPad from './Components/DrawingPad'
+import { AssignDrawing, GuessDrawing} from './Components/RoundOne'
 
 function App() {
   const [homepage, showHome] = useState(true);
   const [infopage,showInfo] = useState(false);
   const [stats,showStats] = useState(false);
+  const [timerActive, setTimerActive] = useState(false);
   const [firstround,showFRound] = useState(false);
   const canvasRef = useRef(null);
+  
+  const givenWord = AssignDrawing();
 
   const handleButtonClick = (boxName) => {
     showHome(false);
@@ -20,18 +23,16 @@ function App() {
     showStats(true);
   };
 
-  const [timerActive, setTimerActive] = useState(false);
-
   const handleStart = () => {
     setTimerActive(true);
     showInfo(false);
     showFRound(true);
   };
 
-  const getImage = () => {
-    const dataURL = canvasRef.current.getDataURL();
-    console.log(dataURL);
+  const getImage = async () => {
+    const dataUrl = canvasRef.current.getDataURL();
   };
+
 
   return (
     <div className="App">
@@ -90,9 +91,10 @@ function App() {
 
       {/* First Round */}
         {firstround && (<div className="fourthDiv">
-          <div className="wordText">
-            WORD
+          <div>
+            {givenWord}
           </div>
+          {/* {() => {canvasRef.current.clear(); }} */}
           <button className="Erase" onClick={() => {canvasRef.current.clear(); }}>ERASE</button>
           <CanvasDraw ref= {canvasRef}   
             style={{ width: '100%', height: '80vh'}}
@@ -104,7 +106,6 @@ function App() {
           />
           <div className="Robot"><img src={Robot} alt="Robot" /></div>
           <div className="RobotAnswer"><b>That is a <u>WORD</u></b></div>
-
 
         </div>)}
     </div>
