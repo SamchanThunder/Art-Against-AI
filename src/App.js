@@ -116,7 +116,7 @@ function App() {
 
           <button className="Erase" onClick={() => { canvasRef.current.clear(); }}>ERASE</button>
           <CanvasDraw ref={canvasRef}
-            style={{ width: '100%', height: '80vh' }}
+            style={{ width: '100%', height: '70vh' }}
             brushRadius={4}
             brushColor="#000000"
             hideInterface={false}
