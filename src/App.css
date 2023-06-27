@@ -259,14 +259,19 @@ li{
   cursor: pointer;
 }
 
+.fourthDiv{
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
 .RobotAnswer{
   z-index: 0;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
   text-align: center;
-  font-size: 3vw;
-  bottom: 18vh;
+  font-size: 2.5vw;
+  bottom: 17vh;
   @media (max-width: 600px) {
     font-size: 7vw;
   }
@@ -277,15 +282,16 @@ li{
   left: 50%;
   transform: translate(-50%);
   text-align: center;
-  bottom: 1vh;
+  bottom: 0vh;
   @media (max-width: 600px) {
     bottom: 1vh;
   }
 }
 .Robot img{
   width: 13vw; 
-  height: auto;
+  height: 20vh;
   @media (max-width: 600px) {
     width: 45%;
+    height: auto;
   }
 }
