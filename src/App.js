@@ -5,7 +5,7 @@ import Logo from './Assets/Logo.png';
 import Robot from './Assets/Robot.png';
 import React, { useState, useRef, useEffect } from 'react';
 import Timer from './Components/Timer'
-import { AssignDrawing, TimeGuessDrawing } from './Components/RoundOne'
+import { TimeGuessDrawing } from './Components/RoundOne'
 
 function App() {
   const [homepage, showHome] = useState(true);
@@ -13,8 +13,11 @@ function App() {
   const [stats, showStats] = useState(false);
   const [timerActive, setTimerActive] = useState(false);
   const [firstround, showFRound] = useState(false);
+  const [drawWord, setDrawWord] = useState('');
+  const [playerPoints, setPlayerPoints] = useState(0);
   const canvasRef = useRef(null);
 
+  // Basic Functions
   const handleButtonClick = (boxName) => {
     showHome(false);
     showInfo(true);
@@ -27,9 +30,26 @@ function App() {
     showFRound(true);
   };
 
+  // Round One
   const getImage = async () => {
     const dataUrl = canvasRef.current.getDataURL();
   };
+
+  useEffect(() => {
+    assignDrawing();
+  }, []);
+
+  function addPoint() {
+    setPlayerPoints(playerPoints + 1);
+  }
+  function assignDrawing() {
+    console.log("Assigned Drawing!");
+    const possibleDrawings = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    const randomIndex = Math.floor(Math.random() * possibleDrawings.length);
+    const theWord = possibleDrawings[randomIndex];
+    
+    setDrawWord(theWord);
+  }
 
   return (
     <div className="App">
@@ -65,7 +85,7 @@ function App() {
         <div className="thirdDiv">
           <div className="scoreFlex">
             <div className="playerScore">
-              You: 00
+              You: {playerPoints}
             </div>
             <Timer timerActive={timerActive} />
             <div className="aiScore">
@@ -96,8 +116,7 @@ function App() {
       {/* First Round */}
       {firstround && (
         <div className="fourthDiv">
-
-          <div className="wordText">Draw: <AssignDrawing /></div>
+          <div className="wordText">Draw: {drawWord}</div>
 
           <button className="Erase" onClick={() => { canvasRef.current.clear(); }}>ERASE</button>
           <CanvasDraw ref={canvasRef}
@@ -110,7 +129,10 @@ function App() {
 
           <div className="Robot"><img src={Robot} alt="Robot" /></div>
 
-          <div className="RobotAnswer">That is a <TimeGuessDrawing /></div>
+          <div className="RobotAnswer">
+            That is a {' '} 
+            <TimeGuessDrawing drawWord={drawWord} assignDrawing={assignDrawing} addPoint={addPoint} /> 
+          </div>
         </div>
       )}
     </div>
