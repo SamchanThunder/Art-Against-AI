@@ -16,6 +16,10 @@ function Timer({ timerActive }) {
       clearInterval(intervalId);
     }
 
+    if (timeRemaining === 0){
+        console.log("Round One Complete");
+    }
+
     return () => clearInterval(intervalId);
   }, [timerActive, timeRemaining]);
 

@@ -31,10 +31,6 @@ function App() {
   };
 
   // Round One
-  const getImage = async () => {
-    const dataUrl = canvasRef.current.getDataURL();
-  };
-
   useEffect(() => {
     assignDrawing();
   }, []);
@@ -130,8 +126,8 @@ function App() {
           <div className="Robot"><img src={Robot} alt="Robot" /></div>
 
           <div className="RobotAnswer">
-            That is a {' '} 
-            <TimeGuessDrawing drawWord={drawWord} assignDrawing={assignDrawing} addPoint={addPoint} /> 
+            That is a {' '}
+            <TimeGuessDrawing drawWord={drawWord} assignDrawing={assignDrawing} addPoint={addPoint} canvasDrawing={canvasRef} /> 
           </div>
         </div>
       )}
