@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Art-Against-AI/static/css/main.b2a20700.css",
-    "main.js": "/Art-Against-AI/static/js/main.9eb369a7.js",
+    "main.css": "/Art-Against-AI/static/css/main.b62d0382.css",
+    "main.js": "/Art-Against-AI/static/js/main.79cc23ab.js",
     "static/js/787.81bd6cb7.chunk.js": "/Art-Against-AI/static/js/787.81bd6cb7.chunk.js",
     "static/media/Logo.png": "/Art-Against-AI/static/media/Logo.7319777f8ed18609c9e0.png",
     "static/media/Robot.png": "/Art-Against-AI/static/media/Robot.368be4746e766b9e5561.png",
     "index.html": "/Art-Against-AI/index.html",
-    "main.b2a20700.css.map": "/Art-Against-AI/static/css/main.b2a20700.css.map",
-    "main.9eb369a7.js.map": "/Art-Against-AI/static/js/main.9eb369a7.js.map",
+    "main.b62d0382.css.map": "/Art-Against-AI/static/css/main.b62d0382.css.map",
+    "main.79cc23ab.js.map": "/Art-Against-AI/static/js/main.79cc23ab.js.map",
     "787.81bd6cb7.chunk.js.map": "/Art-Against-AI/static/js/787.81bd6cb7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b2a20700.css",
-    "static/js/main.9eb369a7.js"
+    "static/css/main.b62d0382.css",
+    "static/js/main.79cc23ab.js"
   ]
 }
