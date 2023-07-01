@@ -5,6 +5,7 @@ import Logo from './Assets/Logo.png';
 import Robot from './Assets/Robot.png';
 import React, { useState, useRef, useEffect } from 'react';
 import Timer from './Components/Timer'
+import Categories from "./Components/categories.txt";
 import { TimeGuessDrawing } from './Components/RoundOne'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   const [drawWord, setDrawWord] = useState('');
   const [playerPoints, setPlayerPoints] = useState(0);
   const canvasRef = useRef(null);
+  var categoriesArray = [];
 
   // Basic Functions
   const handleButtonClick = (boxName) => {
@@ -32,7 +34,10 @@ function App() {
 
   // Round One
   useEffect(() => {
-    assignDrawing();
+    fetch(Categories).then(r => r.text()).then(text => {
+      categoriesArray = text.split('\n');
+      assignDrawing();
+    });
   }, []);
 
   function addPoint() {
@@ -40,9 +45,8 @@ function App() {
   }
   function assignDrawing() {
     console.log("Assigned Drawing!");
-    const possibleDrawings = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-    const randomIndex = Math.floor(Math.random() * possibleDrawings.length);
-    const theWord = possibleDrawings[randomIndex];
+    const randomIndex = Math.floor(Math.random() * categoriesArray.length);
+    const theWord = categoriesArray[randomIndex];
     
     setDrawWord(theWord);
   }
@@ -112,7 +116,7 @@ function App() {
       {/* First Round */}
       {firstround && (
         <div className="fourthDiv">
-          <div className="wordText">Draw: {drawWord}</div>
+          <div className="wordText">Draw: <u>{drawWord}</u></div>
 
           <button className="Erase" onClick={() => { canvasRef.current.clear(); }}>ERASE</button>
           <CanvasDraw ref={canvasRef}

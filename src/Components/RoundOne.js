@@ -4,7 +4,7 @@ import Timer from './Timer';
 
 const getImage = async (canvasDrawing) => {
     if (canvasDrawing.current) {
-      let theImage = await canvasDrawing.current.getDataURL();
+      let theImage = await canvasDrawing.current.getDataURL('image/png');
       console.log(theImage);
       return theImage;
     }
