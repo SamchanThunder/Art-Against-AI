@@ -116,7 +116,7 @@ function App() {
       {/* First Round */}
       {firstround && (
         <div className="fourthDiv">
-          <div className="wordText">Draw: <u>{drawWord}</u></div>
+          <div className="wordText">Draw a <u>{drawWord}</u></div>
 
           <button className="Erase" onClick={() => { canvasRef.current.clear(); }}>ERASE</button>
           <CanvasDraw ref={canvasRef}

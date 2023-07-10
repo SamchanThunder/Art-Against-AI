@@ -5,20 +5,41 @@ import Timer from './Timer';
 const getImage = async (canvasDrawing) => {
     if (canvasDrawing.current) {
       let theImage = await canvasDrawing.current.getDataURL('image/png');
-      console.log(theImage);
       return theImage;
     }
 };
 
+const loadModel = async () => {
+  const loadedModel = await tf.loadLayersModel('https://raw.githubusercontent.com/google/tfjs-mnist-workshop/master/model/model.json');
+  return loadedModel;
+};
+const loadedModelPromise = loadModel();
+
 export function TimeGuessDrawing({ drawWord, assignDrawing, addPoint, canvasDrawing}) {
     const [word, setWord] = useState('');
-    const image = getImage(canvasDrawing);
+    const [image, setImage] = useState(null);
+    const [model, setModel] = useState(null);
+
     useEffect(() => {
-      const timer = setInterval(() => {
-        const possibleDrawings = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-        const randomIndex = Math.floor(Math.random() * possibleDrawings.length);
-        const theWord = possibleDrawings[randomIndex];
-        setWord(theWord);
+      const fetchData = async () => {
+        const imageData = await getImage(canvasDrawing);
+        setImage(imageData);
+      };
+      fetchData();
+    }, []);
+
+    useEffect(() => {
+      loadedModelPromise.then((loadedModel) => {
+        setModel(loadedModel);
+      });
+    }, []);
+
+    useEffect(() => {
+      const timer = setInterval(async () => {
+        if (model && image) {
+          const prediction = await model.predict(image);
+          setWord(prediction);
+        }
       }, 3000);
   
       if (word === drawWord) {
