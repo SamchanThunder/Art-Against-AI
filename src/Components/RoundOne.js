@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import * as tf from '@tensorflow/tfjs';
 import Timer from './Timer';
 
 const getImage = async (canvasDrawing) => {
     if (canvasDrawing.current) {
-      let theImage = await canvasDrawing.current.getDataURL('image/png');
+      let theImage = await canvasDrawing.current.getDataURL();
       return theImage;
     }
 };
@@ -20,13 +20,10 @@ export function TimeGuessDrawing({ drawWord, assignDrawing, addPoint, canvasDraw
     const [image, setImage] = useState(null);
     const [model, setModel] = useState(null);
 
-    useEffect(() => {
-      const fetchData = async () => {
-        const imageData = await getImage(canvasDrawing);
-        setImage(imageData);
-      };
-      fetchData();
-    }, []);
+    const fetchData = async () => {
+      const imageData = await getImage(canvasDrawing);
+      setImage(imageData);
+    };
 
     useEffect(() => {
       loadedModelPromise.then((loadedModel) => {
@@ -36,8 +33,9 @@ export function TimeGuessDrawing({ drawWord, assignDrawing, addPoint, canvasDraw
 
     useEffect(() => {
       const timer = setInterval(async () => {
+        fetchData();
         if (model && image) {
-          const prediction = await model.predict(image);
+          let prediction = model.predict(image).reshape([1,-1]);
           setWord(prediction);
         }
       }, 3000);
