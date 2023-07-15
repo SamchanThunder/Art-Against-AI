@@ -4,8 +4,8 @@ import * as tf from '@tensorflow/tfjs';
 const getImage = async (canvasDrawing) => {
     if (canvasDrawing.current) {
       let theImage = await canvasDrawing.current.getDataURL();
-      var imageNow = await new Image();
-      imageNow.src = await theImage;
+      var imageNow = new Image();
+      imageNow.src = theImage;
       return imageNow;
     }
 };
@@ -20,6 +20,7 @@ export function TimeGuessDrawing({ drawWord, assignDrawing, addPoint, canvasDraw
     const [word, setWord] = useState('');
     const [image, setImage] = useState(null);
     const [model, setModel] = useState(null);
+    const [img, setImg] = useState(null);
 
     const fetchData = async () => {
       const imageData = await getImage(canvasDrawing);
@@ -48,6 +49,7 @@ export function TimeGuessDrawing({ drawWord, assignDrawing, addPoint, canvasDraw
         fetchData();
         if (image != null){
           var prediction = model.predict(image);
+          alert(prediction);
           var predictedWord = prediction.argMax(1).arraySync()[0];
           setWord(predictedWord);
         }
