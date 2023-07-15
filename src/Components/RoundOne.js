@@ -1,16 +1,17 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as tf from '@tensorflow/tfjs';
-import Timer from './Timer';
 
 const getImage = async (canvasDrawing) => {
     if (canvasDrawing.current) {
       let theImage = await canvasDrawing.current.getDataURL();
-      return theImage;
+      var imageNow = await new Image();
+      imageNow.src = await theImage;
+      return imageNow;
     }
 };
 
 const loadModel = async () => {
-  const loadedModel = await tf.loadLayersModel('https://raw.githubusercontent.com/google/tfjs-mnist-workshop/master/model/model.json');
+  const loadedModel = await tf.loadLayersModel('https://raw.githubusercontent.com/aralroca/MNIST_React_TensorFlowJS/master/public/assets/model.json');
   return loadedModel;
 };
 const loadedModelPromise = loadModel();
@@ -22,7 +23,18 @@ export function TimeGuessDrawing({ drawWord, assignDrawing, addPoint, canvasDraw
 
     const fetchData = async () => {
       const imageData = await getImage(canvasDrawing);
-      setImage(imageData);
+      const imageTensor = await preprocessImage(imageData);
+      setImage(imageTensor);
+    };
+
+    const preprocessImage = async (imageData) => {
+      const image = await tf.browser.fromPixels(imageData);
+      const resizedImage = tf.image.resizeBilinear(image, [28, 28]);
+      const grayscaleImage = resizedImage.mean(2);
+      const expandedImage = grayscaleImage.expandDims(2);
+      const normalizedImage = expandedImage.div(255.0);
+      const batchedImage = normalizedImage.expandDims(0);
+      return batchedImage;
     };
 
     useEffect(() => {
@@ -34,9 +46,10 @@ export function TimeGuessDrawing({ drawWord, assignDrawing, addPoint, canvasDraw
     useEffect(() => {
       const timer = setInterval(async () => {
         fetchData();
-        if (model && image) {
-          let prediction = model.predict(image).reshape([1,-1]);
-          setWord(prediction);
+        if (image != null){
+          var prediction = model.predict(image);
+          var predictedWord = prediction.argMax(1).arraySync()[0];
+          setWord(predictedWord);
         }
       }, 3000);
   
@@ -49,6 +62,6 @@ export function TimeGuessDrawing({ drawWord, assignDrawing, addPoint, canvasDraw
         clearInterval(timer);
       };
     });
-  
+
     return word;
-  }
+}
