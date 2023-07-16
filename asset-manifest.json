@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/Art-Against-AI/static/css/main.b62d0382.css",
-    "main.js": "/Art-Against-AI/static/js/main.cbdc883c.js",
+    "main.js": "/Art-Against-AI/static/js/main.bf024230.js",
     "static/js/787.81bd6cb7.chunk.js": "/Art-Against-AI/static/js/787.81bd6cb7.chunk.js",
     "static/media/Logo.png": "/Art-Against-AI/static/media/Logo.7319777f8ed18609c9e0.png",
     "static/media/Robot.png": "/Art-Against-AI/static/media/Robot.368be4746e766b9e5561.png",
     "static/media/categories.txt": "/Art-Against-AI/static/media/categories.575ea389b5ebfeee3462.txt",
     "index.html": "/Art-Against-AI/index.html",
     "main.b62d0382.css.map": "/Art-Against-AI/static/css/main.b62d0382.css.map",
-    "main.cbdc883c.js.map": "/Art-Against-AI/static/js/main.cbdc883c.js.map",
+    "main.bf024230.js.map": "/Art-Against-AI/static/js/main.bf024230.js.map",
     "787.81bd6cb7.chunk.js.map": "/Art-Against-AI/static/js/787.81bd6cb7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b62d0382.css",
-    "static/js/main.cbdc883c.js"
+    "static/js/main.bf024230.js"
   ]
 }
