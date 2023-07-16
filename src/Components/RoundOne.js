@@ -20,7 +20,6 @@ export function TimeGuessDrawing({ drawWord, assignDrawing, addPoint, canvasDraw
     const [word, setWord] = useState('');
     const [image, setImage] = useState(null);
     const [model, setModel] = useState(null);
-    const [img, setImg] = useState(null);
 
     const fetchData = async () => {
       const imageData = await getImage(canvasDrawing);
