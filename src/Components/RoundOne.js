@@ -23,7 +23,7 @@ export function TimeGuessDrawing({ drawWord, assignDrawing, addPoint, canvasDraw
 
     const fetchData = async () => {
       const imageData = await getImage(canvasDrawing);
-      const imageTensor = await preprocessImage(imageData);
+      const imageTensor = preprocessImage(imageData);
       setImage(imageTensor);
     };
 
